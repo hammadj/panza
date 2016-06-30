@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Panza by hammadj</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Panza</h1>
+      <h2 class="project-tagline">react-native stateless functional UI components to get you up and running quickly</h2>
+      <a href="https://github.com/hammadj/panza" class="btn">View on GitHub</a>
+      <a href="https://github.com/hammadj/panza/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/hammadj/panza/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="panza" class="anchor" href="#panza" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>panza</h1>
+
+<p>Panza (named after Sancho Panza, from Don Quixote), is a collection of  stateless, functional ui-components for react-native, and heavily inspired by the excellent <a href="https://github.com/jxnblk/rebass">rebass</a> library. </p>
+
+<p>The goal with Panza is to provide a set of commonly used (mostly) functional ui components for react-native, that work well in both android and iOS environments. These components should look nice out of the box, but still offer a high degree of customization. This is achieved primarily through the use of composition. Each component is comprised of smaller components including a <a href="documentation/Base.md">Base</a> component, which provides some nice shorthands to transform props into styles based upon a global configuration. A component like <a href="documentation/TouchableRow.md">TouchableRow</a> may suit your needs eighty percent of the time, but in cases where you need something a bit more custom, you can construct your own row using TouchableRowCell, PrimaryText, SecondaryText, RowImage, Base, ArrowRightIcon, and any other components that you’d like.</p>
+
+<p>You can see Panza in production with <a href="http://payback.panzeo.com">Payback</a>, an app that manages shared expenses between individuals and groups.</p>
+
+<p>
+<img src="images/panza-ios-large.png" width="375px">
+<img src="images/panza-android-large.png" width="360px">
+</p>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<pre><code>$ npm i panza --save
+$ npm i react-native-vector-icons --save
+$ rnpm link react-native-vector-icons
+</code></pre>
+
+<h2>
+<a id="components" class="anchor" href="#components" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Components</h2>
+
+<h3>
+<a id="inputs" class="anchor" href="#inputs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Inputs</h3>
+
+<ul>
+<li><a href="documentation/InputRow.md">InputRow</a></li>
+<li><a href="documentation/InputGroup.md">InputGroup</a></li>
+<li><a href="documentation/InputHelpText.md">InputHelpText</a></li>
+<li><a href="documentation/InputToggle.md">InputToggle</a></li>
+<li><a href="documentation/InputPicker.md">InputPicker</a></li>
+<li><a href="documentation/InputDatePicker.md">InputDatePicker</a></li>
+<li><a href="documentation/RemovableInput.md">RemovableInput</a></li>
+<li><a href="documentation/AddRow.md">AddRow</a></li>
+<li><a href="documentation/TouchableInput.md">TouchableInput</a></li>
+</ul>
+
+<h3>
+<a id="rows" class="anchor" href="#rows" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rows</h3>
+
+<ul>
+<li><a href="documentation/TouchableRow.md">TouchableRow</a></li>
+<li><a href="documentation/RowSeparator.md">RowSeparator</a></li>
+<li><a href="documentation/RowImage.md">RowImage</a></li>
+<li><a href="documentation/SectionHeader.md">SectionHeader</a></li>
+</ul>
+
+<h3>
+<a id="navigation" class="anchor" href="#navigation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Navigation</h3>
+
+<ul>
+<li><a href="documentation/NavBar.md">NavBar</a></li>
+<li><a href="documentation/NavTitle.md">NavTitle</a></li>
+<li><a href="documentation/NavTouchableIcon.md">NavTouchableIcon</a></li>
+<li><a href="documentation/NavTouchableText.md">NavTouchableText</a></li>
+<li><a href="documentation/SubNav.md">SubNav</a></li>
+</ul>
+
+<h3>
+<a id="pages" class="anchor" href="#pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pages</h3>
+
+<ul>
+<li><a href="documentation/ErrorPage.md">ErrorPage</a></li>
+<li><a href="documentation/LoadingPage.md">LoadingPage</a></li>
+</ul>
+
+<h3>
+<a id="buttons" class="anchor" href="#buttons" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Buttons</h3>
+
+<ul>
+<li><a href="documentation/Button.md">Button</a></li>
+<li><a href="documentation/PrimaryButton.md">PrimaryButton</a></li>
+<li><a href="documentation/WarningButton.md">WarningButton</a></li>
+<li><a href="documentation/ErrorButton.md">ErrorButton</a></li>
+<li><a href="documentation/SuccessButton.md">SuccessButton</a></li>
+<li><a href="documentation/NakedButton.md">NakedButton</a></li>
+<li><a href="documentation/VerticalButtonGroup.md">VerticalButtonGroup</a></li>
+</ul>
+
+<h3>
+<a id="text" class="anchor" href="#text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Text</h3>
+
+<ul>
+<li><a href="documentation/PrimaryText.md">PrimaryText</a></li>
+<li><a href="documentation/SecondaryText.md">SecondaryText</a></li>
+<li><a href="documentation/LargeText.md">LargeText</a></li>
+<li><a href="documentation/SubtitleText.md">SubtitleText</a></li>
+<li><a href="documentation/PrimaryTextInput.md">PrimaryTextInput</a></li>
+<li><a href="documentation/SecondaryTextInput.md">SecondaryTextInput</a></li>
+</ul>
+
+<h3>
+<a id="images" class="anchor" href="#images" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Images</h3>
+
+<ul>
+<li><a href="documentation/FadeImage.md">FadeImage</a></li>
+</ul>
+
+<h3>
+<a id="icons" class="anchor" href="#icons" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Icons</h3>
+
+<ul>
+<li><a href="documentation/Icon.md">Icon</a></li>
+<li>TouchableIcon</li>
+<li>PlusIcon</li>
+<li>ArrowRightIcon</li>
+<li>CloseIcon</li>
+<li>BackIcon</li>
+<li>SearchIcon</li>
+<li>MoreIcon</li>
+</ul>
+
+<h3>
+<a id="base-components" class="anchor" href="#base-components" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Base Components</h3>
+
+<ul>
+<li><a href="documentation/Base.md">Base</a></li>
+<li><a href="documentation/TextBase.md">TextBase</a></li>
+</ul>
+
+<h2>
+<a id="customize" class="anchor" href="#customize" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Customize</h2>
+
+<p>You can override parts of the global configuration to provide custom colours, font sizes, scales, etc.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> { <span class="pl-smi">config</span> } <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>panza<span class="pl-pds">'</span></span>
+
+<span class="pl-k">class</span> <span class="pl-en">App</span> <span class="pl-k">extends</span> <span class="pl-e">React</span>.<span class="pl-smi">Component</span> {
+
+  <span class="pl-k">static</span> childContextTypes <span class="pl-k">=</span> {
+    panza<span class="pl-k">:</span> <span class="pl-smi">PropTypes</span>.<span class="pl-c1">object</span>
+  }
+
+  <span class="pl-en">getChildContext</span>() {
+    panza<span class="pl-k">:</span> <span class="pl-v">this</span>.<span class="pl-smi">state</span>.<span class="pl-smi">styles</span>
+  }
+
+  state <span class="pl-k">=</span> {
+    styles<span class="pl-k">:</span> {
+      colors<span class="pl-k">:</span> <span class="pl-c1">Object</span>.<span class="pl-en">assign</span>(
+        {},
+        <span class="pl-smi">config</span>.<span class="pl-smi">colors</span>,
+        { primary<span class="pl-k">:</span> <span class="pl-smi">config</span>.<span class="pl-smi">colors</span>.<span class="pl-smi">red</span> } <span class="pl-c">// change the primary color from blue to red</span>
+      )
+    }
+  }
+
+  <span class="pl-c">// ... render your app</span>
+}</pre></div>
+
+<h2>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
+
+<p>You can install the example application contained within this repository.</p>
+
+<pre><code>$ git clone https://github.com/bmcmahen/panza.git
+$ cd panza &amp;&amp; npm install
+$ react-native run-ios
+$ react-native run-android
+</code></pre>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>MIT</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/hammadj/panza">Panza</a> is maintained by <a href="https://github.com/hammadj">hammadj</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
