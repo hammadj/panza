@@ -17,6 +17,7 @@ import IconsExample from './IconsExample'
 import ImageExample from './ImageExample'
 import NavbarExample from './NavBarExample'
 import AllTogetherNow from './AllTogetherNow'
+import Benchmark from './Benchmark'
 
 
 import {
@@ -69,6 +70,10 @@ const Examples: Array<WidgetExample> = [
   {
     name: 'Panza',
     module: AllTogetherNow
+  },
+  {
+    name: 'Benchmark',
+    module: Benchmark
   }
 ]
 
