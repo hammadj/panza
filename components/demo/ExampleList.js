@@ -17,12 +17,13 @@ import IconsExample from './IconsExample'
 import ImageExample from './ImageExample'
 import NavbarExample from './NavBarExample'
 import AllTogetherNow from './AllTogetherNow'
+import Card from './CardExample'
 
 
 import {
   TouchableRow,
   NavBar,
-  Separator
+  Divider
 } from '../panza'
 
 
@@ -69,6 +70,10 @@ const Examples: Array<WidgetExample> = [
   {
     name: 'Panza',
     module: AllTogetherNow
+  },
+  {
+    name: 'Card',
+    module: Card
   }
 ]
 
@@ -84,7 +89,7 @@ export default ({onSelect}) => {
     <ListView
       dataSource={dataSource}
       style={styles.list}
-      renderSeparator={(a, b) => ((Platform.OS === 'ios') && <Separator inset={16} key={a + b} />)}
+      renderSeparator={(a, b) => ((Platform.OS === 'ios') && <Divider inset={16} key={a + b} />)}
       renderRow={(rowData) => (
         <TouchableRow
           onPress={() => onSelect(rowData)}

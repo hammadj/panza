@@ -1,5 +1,6 @@
-import FadeImage from './FadeImage'
+import ImageBase from './ImageBase'
 
 export {
-  FadeImage
+  ImageBase,
+  ImageBase as Image
 }

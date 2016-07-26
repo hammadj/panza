@@ -2,17 +2,13 @@ import React, { PropTypes } from 'react'
 
 import {
   View,
-  Text,
   Platform,
   StyleSheet,
-  Navigator,
-  TouchableOpacity,
   PixelRatio
 } from 'react-native'
 
 import Base from '../Base'
 import NavTitle from './NavTitle'
-import NavTextAction from './NavTouchableText'
 
 const defaultNavbarStyle = {
   backgroundColor: 'white',
@@ -47,7 +43,13 @@ const Navbar = (props) => {
       backgroundColor={backgroundColor}
       {...other}
     >
-      <View style={[styles.navBar, children && styles.hasChildren, transparent && styles.transparent]}>
+      <View
+        style={[
+          styles.navBar,
+          children && styles.hasChildren,
+          transparent && styles.transparent
+        ]}
+      >
         <View style={styles.navTopRow}>
           {title &&
             <NavTitle
@@ -93,10 +95,18 @@ Navbar.defaultStyles = defaultNavbarStyle
 Navbar.propTypes = {
   title: PropTypes.string,
   LeftButton: PropTypes.node,
-  RightButton: PropTypes.node
+  RightButton: PropTypes.node,
+  style: PropTypes.any,
+  children: PropTypes.node,
+  transparent: PropTypes.bool,
+  backgroundColor: PropTypes.string,
+  titleColor: PropTypes.string
 }
 
-Navbar.totalNavHeight = 56
+Navbar.totalNavHeight = Platform.select({
+  ios: 44 + 20,
+  android: 56
+})
 
 export default Navbar
 
@@ -115,7 +125,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: Navbar.totalNavHeight,
     justifyContent: 'space-between',
-    paddingBottom: 15,
+    paddingBottom: 20,
     ...Platform.select({
       web: {
         textAlign: 'center',
@@ -173,16 +183,5 @@ const styles = StyleSheet.create({
   transparent: {
     borderBottomWidth: 0,
     backgroundColor: 'transparent'
-  },
-  close: {
-    height: 40,
-    width: 40
-  },
-  navBarIcon: {
-    marginVertical: 25
-  },
-  navWrapper: {
-    // borderBottomWidth: 1 / PixelRatio.get(),
-    // borderBottomColor: 'rgba(0,0,0,0.25)'
   }
 })

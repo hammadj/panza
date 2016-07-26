@@ -1,21 +1,18 @@
 import React, { PropTypes } from 'react'
 
 import {
-  PrimaryText,
-  SecondaryText,
-  SubtitleText,
-  Base
+  Text,
+  Base,
+  Image,
+  TouchableRowCell
 } from '../index'
-
-
-import RowImage from './RowImage'
-import TouchableRowCell from './TouchableRowCell'
 
 /**
  * The basic RowCell that I use about 80% of the time. It displays
  * an image, primary text, secondary text, a value,
  * and an arrow right icon if the respective props are
  * specified.
+ * @composes TouchableRowCell, Image, Text
  */
 
 const TouchableRow = ({
@@ -26,39 +23,36 @@ const TouchableRow = ({
   onPress,
   value,
   ...other
-}) => {
+}) => (
+  <TouchableRowCell
+    height={height}
+    py={2}
+    onPress={onPress}
+    {...other}
+  >
 
-  return (
-    <TouchableRowCell
-      height={height}
-      py={2}
-      onPress={onPress}
-      {...other}
-    >
+    {image && (
+      <Image mr={2} width={40} height={40} source={image} />
+    )}
 
-      {image && (
-        <RowImage mr={2} source={image} />
-      )}
-
-      <Base flex={1} row align='center' justify='space-between'>
-        <Base flex={1}>
-          {primaryText && (
-            <PrimaryText numberOfLines={1}>{primaryText}</PrimaryText>
-          )}
-          {secondaryText && (
-            <SecondaryText light numberOfLines={1}>{secondaryText}</SecondaryText>
-          )}
-        </Base>
-
-        {value && (
-          <PrimaryText light>{value}</PrimaryText>
+    <Base flex={1} row align='center' justify='space-between'>
+      <Base flex={1}>
+        {primaryText && (
+          <Text lineHeight={2} numberOfLines={1}>{primaryText}</Text>
         )}
-
+        {secondaryText && (
+          <Text small lineHeight={2} light numberOfLines={1}>{secondaryText}</Text>
+        )}
       </Base>
 
-    </TouchableRowCell>
-  )
-}
+      {value && (
+        <Text light>{value}</Text>
+      )}
+
+    </Base>
+
+  </TouchableRowCell>
+)
 
 TouchableRow.displayName = 'TouchableRow'
 
@@ -67,7 +61,8 @@ TouchableRow.propTypes = {
   secondaryText: PropTypes.string,
   value: PropTypes.string,
   onPress: PropTypes.func,
-  image: PropTypes.object
+  image: PropTypes.object,
+  height: PropTypes.number
 }
 
 export default TouchableRow
