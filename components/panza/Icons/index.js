@@ -7,7 +7,7 @@ import {
   BackIcon
 } from './Icons'
 
-import Icon from './BaseIcon'
+import Icon from './BaseIcon.ios.js'
 
 import TouchableIcon from './TouchableIcon'
 
