@@ -2,14 +2,14 @@
   "name": "panza",
   "version": "2.3.0",
   "description": "a foundation for your react-native projects",
-  "main": "components/panza/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "generate-doc-json": "react-docgen components/panza/**/* -o documentation/components.json --pretty",
     "generate-doc-markdown": "node scripts/generate-docs.js",
     "generate-docs": "npm run generate-doc-json && npm run generate-doc-markdown",
     "test": "mocha --require react-native-mock/mock.js --compilers js:babel-core/register --recursive components/**/__specs__/*.spec.js",
-    "build": "rimraf lib && babel ./components/panza -d lib",
+    "build": "rimraf lib && babel ./components/panza -d lib --ignore **/__specs__",
     "web": "NODE_ENV=development node -r ./web/register.js web/server/index.js",
     "web-build": "NODE_ENV=production webpack -p",
     "lint": "eslint components/panza"
