@@ -36,6 +36,10 @@
     "color": "^0.11.1",
     "react-native-vector-icons": "^2.0.3"
   },
+  "peerDependencies": {
+    "react": "^15.1.0",
+    "react-native": "^0.28.0"
+  },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "babel-cli": "^6.8.0",
@@ -66,11 +70,9 @@
     "mocha": "^2.5.3",
     "morgan": "^1.7.0",
     "postcss-loader": "^0.9.1",
-    "react": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
     "react-docgen": "^2.8.2",
     "react-dom": "^15.1.0",
-    "react-native": "^0.28.0",
     "react-native-mock": "^0.2.3",
     "react-native-web": "git+https://github.com/bmcmahen/react-native-web.git",
     "rimraf": "^2.5.2",
