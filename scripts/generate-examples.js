@@ -43,9 +43,9 @@ const template = (examples) => (`
         Component={ListView}
         dataSource={datas}
         renderRow={(row) => (
-          <Base py={2}>
-            <Base px={2}>
-              <Text mb={1} bold>{row.title}</Text>
+          <Base mt={1} mb={2}>
+            <Base px={1} mb={2}>
+              <Text bold fontSize={5}>{row.title}</Text>
             </Base>
             <Base {...row.props}>
               {row.render()}
