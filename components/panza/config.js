@@ -35,7 +35,7 @@ const fontSizes = [
   20,
   17,
   15,
-  12
+  13
 ]
 
 const lineHeights = [
