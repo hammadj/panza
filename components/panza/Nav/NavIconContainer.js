@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { View, StyleSheet, Platform } from 'react-native'
 
 /**
@@ -29,10 +29,6 @@ const NavIconContainer = (props) => {
       {cloned}
     </View>
   )
-}
-
-NavIconContainer.propTypes = {
-  children: PropTypes.node.isRequired
 }
 
 NavIconContainer.displayName = 'NavIconContainer'

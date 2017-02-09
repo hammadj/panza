@@ -1,12 +1,16 @@
 import React, { PropTypes } from 'react'
 import {
+  View,
+  Text,
+  Platform,
+  StyleSheet,
   ActivityIndicatorIOS,
   ActivityIndicator
 } from 'react-native'
 
 import {
   Base,
-  Text
+  PrimaryText
 } from '../index'
 
 /**
@@ -15,9 +19,9 @@ import {
  */
 
 
-class Loader extends React.Component {
+class LoadingPage extends React.Component {
 
-  static displayName = 'Loader'
+  static displayName = 'LoadingPage'
 
   static propTypes = {
     isLoading: PropTypes.bool,
@@ -62,7 +66,7 @@ class Loader extends React.Component {
             />
           )}
         {showText && (
-          <Text fontSize={large ? 2 : 4} ml={1} light>{loadingText}</Text>
+          <PrimaryText fontSize={large ? 2 : 4} ml={1} light>{loadingText}</PrimaryText>
         )}
         </Base>
       </Base>
@@ -72,4 +76,19 @@ class Loader extends React.Component {
 
 }
 
-export default Loader
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  loading: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})
+
+export default LoadingPage

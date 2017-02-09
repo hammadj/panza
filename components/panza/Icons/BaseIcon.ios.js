@@ -14,15 +14,14 @@ import {
 const BaseIcon = (props) => {
   const {
     name,
-    iconSize,
+    size,
     ...other
   } = props
 
-  console.log('ICON SIZE', iconSize)
   return (
     <TextBase
       name={name}
-      iconSize={iconSize}
+      size={size}
       Component={Icon}
       {...other}
     />
@@ -32,7 +31,7 @@ const BaseIcon = (props) => {
 BaseIcon.displayName = 'BaseIcon'
 
 BaseIcon.defaultProps = {
-  iconSize: 35
+  size: 35
 }
 
 export default BaseIcon

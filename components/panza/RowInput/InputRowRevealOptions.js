@@ -18,21 +18,23 @@ export const RevealOption = ({
   textColor,
   onPress,
   ...other
-}) => (
-  <Base
-    Component={TouchableHighlight}
-    px={1}
-    baseStyle={styles.slideOption}
-    onPress={onPress}
-    {...other}
-  >
-    <View style={styles.inputContainer}>
-      <PrimaryText color={textColor}>
-        {label}
-      </PrimaryText>
-    </View>
-  </Base>
-)
+}) => {
+  return (
+    <Base
+      Component={TouchableHighlight}
+      px={1}
+      baseStyle={styles.slideOption}
+      onPress={onPress}
+      {...other}
+    >
+        <View style={styles.inputContainer}>
+          <PrimaryText color={textColor}>
+            {label}
+          </PrimaryText>
+        </View>
+    </Base>
+  )
+}
 
 RevealOption.propTypes = {
   onPress: PropTypes.func.isRequired,
@@ -57,36 +59,38 @@ const InputRowRevealOptions = (
     height,
     ...other
   }
-) => (
-  <View style={styles.slideOptions}>
-    <Base flex={1} row style={{ height }} {...other}>
-      {options.map(opt => {
+) => {
 
-        const {
-          label,
-          onPress,
-          backgroundColor,
-          ...more
-        } = opt
+  return (
+    <View style={styles.slideOptions}>
+      <Base flex={1} row style={{ height }} {...other}>
+        {options.map(opt => {
 
-        return (
-          <RevealOption
-            key={label}
-            onPress={onPress}
-            backgroundColor={backgroundColor}
-            underlayColor={'darken'}
-            label={label}
-            {...more}
-          />
-        )
-      })}
-    </Base>
-  </View>
-)
+          const {
+            label,
+            onPress,
+            backgroundColor,
+            ...other
+          } = opt
+
+          return (
+            <RevealOption
+              key={label}
+              onPress={onPress}
+              backgroundColor={backgroundColor}
+              underlayColor={'darken'}
+              label={label}
+              {...other}
+            />
+          )
+        })}
+      </Base>
+    </View>
+  )
+}
 
 InputRowRevealOptions.propTypes = {
-  height: PropTypes.number,
-  options: PropTypes.array
+  height: PropTypes.number
 }
 
 

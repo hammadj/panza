@@ -10,6 +10,5 @@ export * from './RowInput'
 export * from './Input'
 export * from './Pages'
 export * from './Image'
-export * from './Card'
 
 export { config }

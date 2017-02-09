@@ -1,12 +1,15 @@
 import React, { PropTypes } from 'react'
 import {
   View,
+  Text,
+  Platform,
   TouchableHighlight,
   StyleSheet
 } from 'react-native'
 import {
   Base,
-  Text,
+  SecondaryText,
+  PrimaryText,
   ArrowRightIcon
 } from '../index'
 
@@ -34,6 +37,9 @@ const TouchableInput = ({
   const height = condensed
     ? 40 : 50
 
+  const TextStyle = condensed
+    ? SecondaryText : PrimaryText
+
   return (
     <Base
       Component={TouchableHighlight}
@@ -46,15 +52,15 @@ const TouchableInput = ({
     >
       <View style={styles.innerContainer}>
         {icon}
-        <Text small={condensed} color={labelColor}>
+        <TextStyle color={labelColor}>
           {label}
-        </Text>
+        </TextStyle>
 
         <Base flex={1} justifyContent='flex-end'>
           {value && (
-            <Text textAlign='right' light>
-              {value}
-            </Text>
+              <TextStyle textAlign='right' light>
+                {value}
+              </TextStyle>
           )}
         </Base>
 
@@ -76,17 +82,13 @@ TouchableInput.propTypes = {
   label: PropTypes.string.isRequired,
   icon: PropTypes.node,
   value: PropTypes.string,
-  showMore: PropTypes.bool,
-  condensed: PropTypes.bool,
-  onPress: PropTypes.func.isRequired,
-  disabled: PropTypes.bool
+  showMore: PropTypes.bool
 }
 
 TouchableInput.defaultProps = {
   labelColor: 'default',
   backgroundColor: 'white',
-  showMore: false,
-  disabled: false
+  showMore: false
 }
 
 export default TouchableInput

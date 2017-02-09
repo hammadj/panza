@@ -56,9 +56,9 @@ export const paddings = (props, scale) => {
 const getColor = (color, colors) => {
   if (color && colors[color]) {
     return colors[color]
+  } else if (typeof color === 'string') {
+    return color
   }
-
-  return color
 }
 
 export function radii (props, r = 2) {
@@ -78,26 +78,21 @@ export function radii (props, r = 2) {
 
   if (typeof borderRadius === 'undefined') {
     return {}
+  } else {
+    return { borderRadius }
   }
-
-  return { borderRadius }
 }
 
 export const colorStyle = (props, colors = {}) => {
 
   const {
-    backgroundColor,
-    borderColor
+    backgroundColor
   } = props || {}
 
   const result = {}
 
   if (backgroundColor) {
     result.backgroundColor = getColor(backgroundColor, colors)
-  }
-
-  if (borderColor) {
-    result.borderColor = getColor(borderColor, colors)
   }
 
   return result
@@ -112,18 +107,6 @@ export const colorStyle = (props, colors = {}) => {
 class Base extends React.Component {
 
   static propTypes = {
-
-    /** Custom Component **/
-    Component: PropTypes.any,
-
-    /** Regular style attribute **/
-    style: PropTypes.any,
-
-    /** Base style **/
-    baseStyle: PropTypes.any,
-
-    /** Underlay color. Use 'darken' to automatically darken the backgroundColor **/
-    underlayColor: PropTypes.string,
 
     /** Margin **/
     m: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
@@ -176,9 +159,6 @@ class Base extends React.Component {
       PropTypes.number
     ]),
 
-    /** Border color **/
-    borderColor: PropTypes.string,
-
     /** flex property **/
     flex: PropTypes.number,
 
@@ -195,10 +175,7 @@ class Base extends React.Component {
     align: PropTypes.string,
 
     /** set justify-content property **/
-    justify: PropTypes.string,
-
-    /** set the height of the element **/
-    height: PropTypes.string
+    justify: PropTypes.string
   }
 
   static displayName = 'Base'
@@ -218,8 +195,8 @@ class Base extends React.Component {
       flex,
       row,
       column,
+      auto,
       align,
-      height,
       justify,
       ...props
     } = this.props
@@ -247,7 +224,6 @@ class Base extends React.Component {
       row ? { flexDirection: 'row' } : null,
       align ? { alignItems: align } : null,
       justify ? { justifyContent: justify } : null,
-      height ? { height } : null
     ]
 
     const underlay = (underlayColor === 'darken' && props.backgroundColor)

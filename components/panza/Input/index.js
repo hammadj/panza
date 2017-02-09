@@ -1,5 +1,7 @@
-import Input from './Input'
+import SecondaryTextInput from './SecondaryTextInput'
+import PrimaryTextInput from './PrimaryTextInput'
 
 export {
-  Input
+  SecondaryTextInput,
+  PrimaryTextInput
 }

@@ -1,9 +1,12 @@
 import React, { PropTypes } from 'react'
 import {
   View,
+  Text,
   StyleSheet,
+  PixelRatio
 } from 'react-native'
-import { Base, SectionHeader, Divider } from '../index'
+import Divider from './Divider'
+import { Base, SectionHeader } from '../index'
 
 /**
  * Wrapping components with InputGroup gives you the
@@ -40,10 +43,7 @@ class InputGroup extends React.Component {
     bottomInset: PropTypes.number,
 
     /** an optional label for the input group **/
-    label: PropTypes.string,
-
-    children: PropTypes.node,
-    backgroundColor: PropTypes.string
+    label: PropTypes.string
   }
 
   static defaultProps = {
@@ -87,9 +87,7 @@ class InputGroup extends React.Component {
 
     return (
       <Base baseStyle={style} {...other}>
-        {this.props.label && (
-          <SectionHeader backgroundColor='transparent'>{this.props.label}</SectionHeader>
-        )}
+        {this.props.label && <SectionHeader backgroundColor='transparent'>{this.props.label}</SectionHeader>}
         <Base backgroundColor={backgroundColor}>
           {this.props.showTopBorder && <Divider inset={topInset} />}
           {children}

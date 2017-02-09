@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import ReactDOM from 'react-dom'
 import {
   Animated,
   Platform,
@@ -28,7 +29,19 @@ class RevealingRow extends React.Component {
     }
   }
 
+  showOptions() {
+    Animated.spring(
+      this.state.leftPosition,
+      { toValue: this.state.revealWidth }
+    ).start()
+  }
 
+  hideOptions() {
+    Animated.spring(
+      this.state.leftPosition,
+      { toValue: 0 }
+    ).start()
+  }
 
   constructor(props) {
     super(props)
@@ -55,20 +68,6 @@ class RevealingRow extends React.Component {
       renderRevealOptions: true,
       rowHeight: this._view.clientHeight
     })
-  }
-
-  showOptions() {
-    Animated.spring(
-      this.state.leftPosition,
-      { toValue: this.state.revealWidth }
-    ).start()
-  }
-
-  hideOptions() {
-    Animated.spring(
-      this.state.leftPosition,
-      { toValue: 0 }
-    ).start()
   }
 
   render() {

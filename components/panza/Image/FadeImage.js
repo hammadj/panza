@@ -1,5 +1,9 @@
 import React, { PropTypes } from 'react'
 import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
   Animated
 } from 'react-native'
 
@@ -11,32 +15,29 @@ import {
  * Fade-in an image when it loads.
  */
 
-class ImageBase extends React.Component {
+class FadeImage extends React.Component {
 
-  static displayName = 'ImageBase'
+  static displayName = 'FadeImage'
 
   static propTypes = {
+    src: PropTypes.string.isRequired,
     fade: PropTypes.bool,
     onLoadEnd: PropTypes.func,
     height: PropTypes.number,
     width: PropTypes.number,
-
-    /** set the border radius to be fully round (given an equal height/width) **/
-    circular: PropTypes.bool,
-
-    style: PropTypes.any,
-    source: PropTypes.object.isRequired,
-    resizeMode: PropTypes.string,
-
-    /** the border radius of the image **/
-    rounded: PropTypes.number
+    rounded: PropTypes.bool,
+    backgroundColor: PropTypes.string,
+    imageProps: PropTypes.object
   }
 
   static defaultProps = {
     fade: true,
     resizeMode: 'cover',
+    height: 50,
+    width: 50,
     rounded: false,
-    circular: false
+    backgroundColor: '#fafafa',
+    imageProps: {}
   }
 
   state = {
@@ -66,33 +67,36 @@ class ImageBase extends React.Component {
       source,
       height,
       width,
-      circular,
+      imageProps,
+      backgroundColor,
       rounded,
       resizeMode,
+      fade,
       ...other
     } = this.props
 
     const sx = [{
       height,
       width,
-      opacity: this.state.fade
+      backgroundColor,
+      borderRadius: rounded ? height / 2 : 0
     }, style]
 
     return (
-      <Base
-        {...other}
-        baseStyle={sx}
-        onLoadEnd={() => {
-          this.onLoad()
-        }}
-        rounded={(circular ? (height / 2) : rounded)}
-        source={source}
-        resizeMode={resizeMode}
-        Component={Animated.Image}
-      />
+      <Base {...other}>
+        <Animated.Image
+          style={sx}
+          onLoadEnd={() => {
+            this.onLoad()
+          }}
+          source={source}
+          resizeMode={resizeMode}
+          {...imageProps}
+        />
+      </Base>
     )
   }
 
 }
 
-export default ImageBase
+export default FadeImage

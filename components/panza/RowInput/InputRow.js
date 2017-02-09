@@ -1,12 +1,17 @@
 import React, { PropTypes } from 'react'
 import {
-  StyleSheet
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Dimensions
 } from 'react-native'
 import InputRowCell from './InputRowCell'
 import {
+  PrimaryText,
   Base,
-  Text,
-  Input
+  SecondaryText,
+  PrimaryTextInput
 } from '../index'
 
 /**
@@ -15,9 +20,10 @@ import {
  * renders a TextInput. If a label prop is provided, the TextInput
  * is aligned to the right of the row.
  *
- * To have provide borders, wrap this component (and any other rows) in an InputGroup.
+ * InputRow composes InputRowCell, PrimaryText, and PrimaryTextInput. You can
+ * use these components to create your own custom InputRow.
  *
- * @composes InputRowCell, Text, Input
+ * To have provide borders, wrap this component (and any other rows) in an InputGroup.
  */
 
 class InputRow extends React.Component {
@@ -31,10 +37,7 @@ class InputRow extends React.Component {
     icon: PropTypes.node,
     label: PropTypes.string,
     maxLength: PropTypes.number,
-    height: PropTypes.number,
-    vertical: PropTypes.bool,
-    textAlign: PropTypes.string,
-    style: PropTypes.any
+    height: PropTypes.number
   }
 
   static defaultProps = {
@@ -84,14 +87,13 @@ class InputRow extends React.Component {
         >
           {label &&
             <Base pl={2} mt={vertical && 2}>
-              <Text bold small>{label}</Text>
+              <SecondaryText bold>{label}</SecondaryText>
             </Base>
           }
-          {customInput ||
-            <Input
+          {customInput ? customInput :
+            <PrimaryTextInput
               value={value}
               maxLength={maxLength}
-              px={2}
               style={[styles.input, style]}
               textAlign={alignText}
               {...other}
@@ -103,11 +105,16 @@ class InputRow extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
+var styles = StyleSheet.create({
   input: {
+    paddingLeft: 16, // this should be configurable
+    paddingRight: 16,
     alignSelf: 'stretch',
     flex: 1
-  }
+  },
+  labelText: {
+  },
+
 })
 
 export default InputRow

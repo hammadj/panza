@@ -2,12 +2,14 @@ import React, { PropTypes } from 'react'
 
 import {
   View,
+  Text,
   TouchableOpacity,
+  PixelRatio,
   StyleSheet
 } from 'react-native'
 
 import {
-  Text,
+  SecondaryText,
   Base
 } from '../index'
 
@@ -19,8 +21,6 @@ import config from '../config'
  * This is typically used only on iOS devices. On Android,
  * you'd supply icons for these options instead, and display
  * them on the right side of the primary Navigation Bar.
- *
- * @composes Base
  */
 
 const SubNav = ({
@@ -38,7 +38,7 @@ const SubNav = ({
       flex={1}
       row
       style={[
-        borderBottom && { borderBottomWidth: StyleSheet.hairlineWidth },
+        borderBottom && { borderBottomWidth: 1 / PixelRatio.get() },
         { borderBottomColor: borderColor }
       ]}
       justify='space-between'
@@ -59,9 +59,9 @@ const SubNav = ({
                 style={{ flex: 0 }}
                 onPress={opt.onPress}
               >
-                <Text small color={textColor}>
-                  {opt.label}
-                </Text>
+                  <SecondaryText color={textColor}>
+                    {opt.label}
+                  </SecondaryText>
               </TouchableOpacity>
             </View>
 

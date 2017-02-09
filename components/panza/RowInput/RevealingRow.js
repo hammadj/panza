@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import {
   Animated,
+  Platform,
   StyleSheet,
   View
 } from 'react-native'
@@ -14,24 +15,11 @@ class RevealingRow extends React.Component {
 
   static propTypes = {
     showingOptions: PropTypes.bool.isRequired,
-    revealedContent: PropTypes.node.isRequired,
-    children: PropTypes.node
+    revealedContent: PropTypes.node.isRequired
   }
 
   static defaultProps = {
     showingOptions: false
-  }
-
-  constructor(props) {
-    super(props)
-    this.onViewLayout = this.onViewLayout.bind(this)
-    this.onOptionsLayout = this.onOptionsLayout.bind(this)
-    this.state = {
-      leftPosition: new Animated.Value(0),
-      rowHeight: 40,
-      renderRevealOptions: false,
-      revealWidth: -150
-    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -43,19 +31,6 @@ class RevealingRow extends React.Component {
     } else if (!nextProps.showingOptions && this.props.showingOptions) {
       this.hideOptions()
     }
-  }
-
-  onViewLayout(e) {
-    this.setState({
-      renderRevealOptions: true,
-      rowHeight: e.nativeEvent.layout.height
-    })
-  }
-
-  onOptionsLayout(e) {
-    this.setState({
-      revealWidth: e.nativeEvent.layout.width
-    })
   }
 
   showOptions() {
@@ -72,15 +47,24 @@ class RevealingRow extends React.Component {
     ).start()
   }
 
+  constructor(props) {
+    super(props)
+    this.onViewLayout = this.onViewLayout.bind(this)
+    this.onOptionsLayout = this.onOptionsLayout.bind(this)
+    this.state = {
+      leftPosition: new Animated.Value(0),
+      rowHeight: 40,
+      renderRevealOptions: false,
+      revealWidth: -150
+    }
+  }
+
   render() {
     return (
       <View style={{ position: 'relative', flex: 1 }}>
         {this.state.renderRevealOptions && (
           <View style={[styles.revealContainer, { height: this.state.rowHeight }]}>
-            <View
-              onLayout={this.onOptionsLayout}
-              style={{ height: this.state.rowHeight, alignSelf: 'flex-end' }}
-            >
+            <View onLayout={this.onOptionsLayout} style={{ height: this.state.rowHeight, alignSelf: 'flex-end' }}>
               {this.props.revealedContent}
             </View>
           </View>
@@ -98,6 +82,20 @@ class RevealingRow extends React.Component {
       </View>
     )
   }
+
+  onOptionsLayout(e) {
+    this.setState({
+      revealWidth: e.nativeEvent.layout.width
+    })
+  }
+
+  onViewLayout(e) {
+    this.setState({
+      renderRevealOptions: true,
+      rowHeight: e.nativeEvent.layout.height
+    })
+  }
+
 }
 
 const styles = StyleSheet.create({

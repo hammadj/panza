@@ -5,21 +5,14 @@ import {
   ScrollView
 } from 'react-native'
 
-import {Loader} from '../panza'
+import {LoadingPage} from '../panza'
 
 
 export default class LoadingExample extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <View style={{ flex: 1 }}>
-          <Loader />
-        </View>
-        <View style={{ width: 200, height: 50, borderWidth: 1 }}>
-          <Loader />
-        </View>
-      </View>
+      <LoadingPage />
     )
   }
 }

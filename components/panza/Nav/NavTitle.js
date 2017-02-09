@@ -5,7 +5,8 @@ import {
   View
 } from 'react-native'
 import {
-  Text
+  PrimaryText,
+  LargeText
 } from '../index'
 
 /**
@@ -14,27 +15,21 @@ import {
  * On iOS it composes PrimaryText.
  *
  * On Android, it composes LargeText.
- *
- * @composes Text
  */
 
-const NavTitle = ({ label, color, children, style, ...other }) => (
-  <View style={[styles.container, style]}>
-    {Platform.OS === 'ios'
-      ? <Text color={color} bold {...other}>{label || children}</Text>
-      : <Text color={color} large {...other}>{label || children}</Text>
-    }
-  </View>
-)
+const NavTitle = ({ label, color, children, style, ...other }) => {
+
+  return (
+    <View style={[styles.container, style]}>
+      {Platform.OS === 'ios'
+        ? <PrimaryText color={color} bold>{label || children}</PrimaryText>
+        : <LargeText color={color}>{label || children}</LargeText>
+      }
+    </View>
+  )
+}
 
 NavTitle.displayName = 'NavTitle'
-
-NavTitle.propTypes = {
-  label: PropTypes.string,
-  color: PropTypes.string,
-  children: PropTypes.node,
-  style: PropTypes.any
-}
 
 const styles = StyleSheet.create({
   container: {

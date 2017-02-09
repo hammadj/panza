@@ -1,13 +1,15 @@
 import React, { PropTypes } from 'react'
 import {
   View,
+  Text,
   StyleSheet
 } from 'react-native'
 
 import {
   Base,
-  Button,
-  Text,
+  PrimaryButton,
+  LargeText,
+  SecondaryText
 } from '../index'
 
 /**
@@ -21,13 +23,13 @@ class ErrorPage extends React.Component {
   static displayName = 'ErrorPage'
 
   static propTypes = {
+    error: PropTypes.object.isRequired,
     retry: PropTypes.func.isRequired,
     message: PropTypes.string,
     detailMessage: PropTypes.string,
     offlineMessage: PropTypes.string,
     style: PropTypes.any,
-    isOffline: PropTypes.bool,
-    children: PropTypes.node
+    isOffline: PropTypes.bool
   }
 
   static defaultProps = {
@@ -40,6 +42,7 @@ class ErrorPage extends React.Component {
   render () {
 
     const {
+      error,
       retry,
       message,
       isOffline,
@@ -53,22 +56,22 @@ class ErrorPage extends React.Component {
       <Base baseStyle={styles.container} {...other}>
         <View style={styles.messageContainer}>
           <Base pb={2}>
-            <Text large light textAlign='center'>
-              {message}
-            </Text>
+            <LargeText light textAlign='center'>
+              Hmm, loading appears to be taking a while.
+            </LargeText>
           </Base>
-          <Text small light textAlign='center'>
+          <SecondaryText light textAlign='center'>
             {isOffline ? offlineMessage : detailMessage}
-          </Text>
+          </SecondaryText>
         </View>
         <View>
           {(!isOffline && retry) &&
-            <Button
+            <PrimaryButton
+              style={{ width: 150 }}
               primary
               onPress={retry}
-            >
-              Try again
-            </Button>
+              label='Try again'
+            />
           }
         </View>
         {children}

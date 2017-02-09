@@ -1,13 +1,17 @@
 import React, { PropTypes } from 'react'
 import {
   View,
+  Text,
   StyleSheet,
+  Platform,
+  PixelRatio,
   TouchableHighlight
 } from 'react-native'
 
 import { ArrowRightIcon, Base } from '../index'
 
-const noop = function noop () {}
+
+const noop = function() {}
 
 /**
  * A touchable row cell container, typically used
@@ -27,7 +31,7 @@ const TouchableRowCell = (props) => {
     ...other
   } = props
 
-  const fixedHeight = height === 'auto'
+  let fixedHeight = height === 'auto'
     ? null : height
 
   const heightStyle = {
@@ -67,8 +71,7 @@ TouchableRowCell.propTypes = {
   highlighted: PropTypes.func,
   showMore: PropTypes.bool,
   underlayColor: PropTypes.string,
-  height: PropTypes.number,
-  children: PropTypes.node
+  height: PropTypes.number
 }
 
 TouchableRowCell.defaultProps = {

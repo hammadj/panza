@@ -1,16 +1,21 @@
 import React, { PropTypes } from 'react'
 import {
-  StyleSheet
+  View,
+  Text,
+  StyleSheet,
+  PixelRatio
 } from 'react-native'
 
-import { config, Base } from '../index'
+import Base from '../Base'
+
+import { config } from '../index'
 
 /**
  * A simple component used to separate rows, with an
  * optional inset margin on the left or right.
  */
 
-const Divider = ({ inset, insetRight, ...other }, { panza }) => {
+const RowSeparator = ({ inset, insetRight, ...other }, { panza }) => {
 
   const { borderColor } = { ...config, ...panza }
 
@@ -27,19 +32,19 @@ const Divider = ({ inset, insetRight, ...other }, { panza }) => {
   )
 }
 
-Divider.displayName = 'Divider'
+RowSeparator.displayName = 'RowSeparator'
 
-Divider.propTypes = {
+RowSeparator.propTypes = {
   inset: PropTypes.number,
   insetRight: PropTypes.number
 }
 
-Divider.defaultProps = {
+RowSeparator.defaultProps = {
   inset: 0,
   insetRight: 0
 }
 
-Divider.contextTypes = {
+RowSeparator.contextTypes = {
   panza: PropTypes.object
 }
 
@@ -49,4 +54,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Divider
+export default RowSeparator
