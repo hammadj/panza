@@ -95,8 +95,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     justifyContent: 'space-around',
     alignItems: 'center',
-    flexDirection: 'row',
-    alignSelf: 'flex-start'
+    flexDirection: 'row'
   },
   disabled: {
     opacity: 0.2
