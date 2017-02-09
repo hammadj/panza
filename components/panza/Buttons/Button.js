@@ -189,7 +189,6 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch'
   },
   buttonContent: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'
