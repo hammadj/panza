@@ -96,7 +96,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     flexDirection: 'row',
-    alignSelf: 'flex-start'
   },
   disabled: {
     opacity: 0.2
@@ -105,7 +104,6 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch'
   },
   buttonContent: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'
